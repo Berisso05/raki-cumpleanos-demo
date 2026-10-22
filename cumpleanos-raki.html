@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="es-AR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Propuesta conceptual para la sección de cumpleaños de Raki Parque Aéreo, Salta.">
+  <title>Cumpleaños en Raki | Boceto conceptual</title>
+  <style>
+    :root {
+      --ink: #17352e;
+      --forest: #174c3d;
+      --leaf: #b8d65c;
+      --sun: #ffd45c;
+      --coral: #ec7155;
+      --paper: #fffaf0;
+      --cream: #f3ead4;
+      --muted: #66756b;
+      --page-gutter: clamp(24px, 6.5vw, 124px);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--paper); color: var(--ink); font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; margin: 0; }
+    a { color: inherit; }
+    .site-header { margin: 0 auto; padding: 16px var(--page-gutter); width: 100%; }
+    .nav { align-items: center; display: flex; justify-content: space-between; }
+    .brand { align-items: center; display: flex; font-size: 17px; font-weight: 900; gap: 9px; letter-spacing: .04em; text-decoration: none; }
+    .brand-mark { align-items: center; background: var(--sun); border: 2px solid var(--coral); border-radius: 50%; display: inline-flex; height: 38px; justify-content: center; transform: rotate(-8deg); width: 38px; }
+    .brand small { font-size: 10px; font-weight: 500; letter-spacing: 0; }
+    .nav-links { display: flex; font-size: 13px; font-weight: 650; gap: 24px; }
+    .nav-links a { text-decoration: none; }
+    .nav-links a[aria-current="page"] { color: var(--coral); }
+    .hero, .included, .closing { margin: auto; padding-left: var(--page-gutter); padding-right: var(--page-gutter); width: 100%; }
+    .hero { align-items: center; display: grid; gap: clamp(38px, 5vw, 96px); grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); min-height: 610px; padding-bottom: 48px; padding-top: 18px; }
+    .eyebrow { color: var(--forest); font-size: 11px; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; }
+    h1 { font-size: clamp(42px, 6vw, 68px); letter-spacing: -.055em; line-height: .98; margin: 14px 0 18px; max-width: 520px; }
+    h1 em { color: var(--coral); font-style: normal; }
+    .lead { color: #435b50; font-size: 16px; line-height: 1.65; margin: 0 0 22px; max-width: 440px; }
+    .cta-row { align-items: center; display: flex; flex-wrap: wrap; gap: 15px; }
+    .button { background: var(--coral); border-radius: 999px; color: white; display: inline-block; font-size: 14px; font-weight: 750; padding: 14px 20px; text-decoration: none; transition: transform .18s ease, background .18s ease; }
+    .button:hover { background: #d85f46; transform: translateY(-2px); }
+    .text-link { color: var(--forest); font-size: 13px; font-weight: 750; text-decoration-color: var(--leaf); text-underline-offset: 4px; }
+    .hero-art { background: linear-gradient(180deg, #b9d8ce 0%, #dbe7bd 55%, #8baf70 100%); border-radius: 48% 48% 22px 22px; min-height: clamp(370px, 36vw, 560px); overflow: hidden; position: relative; }
+    .sun-disc { background: var(--sun); border-radius: 50%; height: 68px; position: absolute; right: 13%; top: 12%; width: 68px; }
+    .hill { background: #719d69; border-radius: 50% 50% 0 0; bottom: -45px; height: 170px; left: -10%; position: absolute; transform: rotate(-7deg); width: 125%; }
+    .hill.back { background: #8db678; bottom: 10px; height: 120px; left: 32%; opacity: .9; transform: rotate(9deg); }
+    .rope { border-top: 4px solid #f7f0d9; height: 88px; left: 7%; position: absolute; top: 38%; transform: rotate(-13deg); width: 96%; }
+    .rope::after { border-top: 3px solid #f7f0d9; content: ""; left: 8%; position: absolute; top: 25px; transform: rotate(18deg); width: 86%; }
+    .post { background: #b9553f; border-radius: 9px 9px 0 0; bottom: 48px; height: 150px; position: absolute; width: 14px; }
+    .post.one { left: 26%; transform: rotate(-8deg); }
+    .post.two { height: 190px; right: 24%; }
+    .platform { background: #d56e4d; bottom: 112px; height: 11px; left: 20%; position: absolute; transform: rotate(-8deg); width: 24%; }
+    .person { background: var(--sun); border: 4px solid #fff7dc; border-radius: 50%; height: 39px; left: 49%; position: absolute; top: 44%; width: 39px; }
+    .person::before { background: #214f42; border-radius: 10px; content: ""; height: 66px; left: 12px; position: absolute; top: 33px; transform: rotate(12deg); width: 10px; }
+    .person::after { background: #214f42; border-radius: 10px; content: ""; height: 44px; left: 1px; position: absolute; top: 43px; transform: rotate(-38deg); width: 7px; }
+    .art-label { background: var(--paper); border-radius: 12px; bottom: 16px; box-shadow: 0 8px 22px #17352e20; color: var(--ink); font-size: 12px; font-weight: 750; padding: 11px 14px; position: absolute; right: 14px; }
+    .quick-facts { align-items: center; background: var(--forest); color: white; display: flex; flex-wrap: wrap; gap: 12px 30px; justify-content: center; padding: 17px 24px; }
+    .fact { align-items: center; display: flex; font-size: 13px; gap: 8px; }
+    .fact strong { color: var(--sun); font-size: 16px; }
+    .included { padding-bottom: 48px; padding-top: 48px; }
+    .section-head { align-items: end; display: flex; gap: 20px; justify-content: space-between; margin-bottom: 24px; }
+    h2 { font-size: clamp(28px, 4vw, 38px); letter-spacing: -.04em; line-height: 1.05; margin: 8px 0 0; }
+    .section-note { color: var(--muted); font-size: 13px; line-height: 1.55; margin: 0; max-width: 290px; }
+    .included-grid { display: grid; gap: 26px; grid-template-columns: repeat(3, 1fr); }
+    .include-item { border-top: 2px solid #d9e2c8; padding-top: 16px; }
+    .include-icon { align-items: center; background: #e5edcf; border-radius: 50%; color: var(--forest); display: flex; font-size: 18px; height: 40px; justify-content: center; margin-bottom: 12px; width: 40px; }
+    h3 { font-size: 16px; margin: 0 0 7px; }
+    .include-item p { color: var(--muted); font-size: 13px; line-height: 1.55; margin: 0; }
+    .extras { align-items: center; background: var(--cream); display: flex; flex-wrap: wrap; gap: 10px 16px; justify-content: space-between; padding: 17px var(--page-gutter); }
+    .extras strong { font-size: 13px; }
+    .extra-pills { display: flex; flex-wrap: wrap; gap: 8px; }
+    .pill { background: var(--paper); border-radius: 99px; color: var(--forest); font-size: 12px; padding: 8px 12px; }
+    .closing { align-items: center; background: var(--leaf); display: flex; gap: 20px; justify-content: space-between; padding-bottom: 25px; padding-top: 25px; }
+    .closing strong { font-size: 19px; letter-spacing: -.02em; }
+    .closing p { color: #385a39; font-size: 12px; margin: 5px 0 0; }
+    .closing .button { background: var(--forest); white-space: nowrap; }
+    .note { color: var(--muted); font-size: 11px; margin: 0; padding: 12px 20px; text-align: center; }
+    :focus-visible { outline: 3px solid #bd4932; outline-offset: 3px; }
+    @media (max-width: 700px) {
+      .site-header { padding: 13px 18px; }
+      .nav-links { gap: 13px; }
+      .nav-links a:not([aria-current="page"]) { display: none; }
+      .hero, .included, .closing { padding-left: 18px; padding-right: 18px; }
+      .hero { gap: 20px; grid-template-columns: 1fr; padding-bottom: 24px; padding-top: 14px; }
+      h1 { font-size: 46px; }
+      .lead { font-size: 15px; }
+      .hero-art { border-radius: 44% 44% 16px 16px; min-height: 260px; }
+      .sun-disc { height: 50px; width: 50px; }
+      .quick-facts { gap: 10px 18px; justify-content: flex-start; padding: 15px 18px; }
+      .fact { font-size: 12px; }
+      .included { padding-bottom: 32px; padding-top: 32px; }
+      .section-head { align-items: flex-start; flex-direction: column; gap: 10px; }
+      .section-note { max-width: 360px; }
+      .included-grid { gap: 15px; grid-template-columns: 1fr; }
+      .include-item { align-items: start; display: grid; gap: 0 12px; grid-template-columns: 40px 1fr; padding-top: 14px; }
+      .include-icon { grid-row: span 2; margin: 0; }
+      .include-item p { grid-column: 2; }
+      .extras { align-items: flex-start; flex-direction: column; padding: 16px 18px; }
+      .closing { align-items: stretch; flex-direction: column; gap: 14px; }
+      .closing .button { text-align: center; }
+    }
+    @media (max-width: 360px) {
+      .brand small { display: none; }
+      h1 { font-size: 40px; }
+      .cta-row { align-items: flex-start; flex-direction: column; }
+      .hero-art { min-height: 220px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .button { transition: none; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav" aria-label="Navegación principal">
+      <a class="brand" href="#inicio" aria-label="Raki Parque Aéreo, inicio"><span class="brand-mark">R</span> RAKI <small>PARQUE AÉREO</small></a>
+      <div class="nav-links"><a href="#cumple" aria-current="page">Cumpleaños</a><a href="#atracciones">Atracciones</a><a href="#empresas">Empresas</a><a href="#consulta">Contacto</a></div>
+    </nav>
+  </header>
+  <main id="inicio">
+    <section class="hero" id="cumple" aria-labelledby="hero-title">
+      <div>
+        <div class="eyebrow">Un cumple fuera de lo común</div>
+        <h1 id="hero-title">Celebrá en <em>modo aventura</em></h1>
+        <p class="lead">Un festejo al aire libre, con juegos en altura, momentos para compartir y toda la energía de Raki.</p>
+        <div class="cta-row"><a class="button" href="#consulta">Consultar por un cumpleaños</a><a class="text-link" href="#incluye">Conocer qué incluye ↓</a></div>
+      </div>
+      <div class="hero-art" role="img" aria-label="Ilustración conceptual de una persona en un circuito aéreo entre árboles">
+        <div class="sun-disc"></div><div class="rope"></div><div class="hill back"></div><div class="hill"></div><div class="post one"></div><div class="post two"></div><div class="platform"></div><div class="person"></div><div class="art-label">Aventura + festejo al aire libre</div>
+      </div>
+    </section>
+    <section class="quick-facts" aria-label="Resumen de la propuesta">
+      <div class="fact"><strong>3 hs</strong> de diversión</div><div class="fact"><strong>Al aire libre</strong> en Raki Parque Aéreo</div><div class="fact"><strong>Juegos +</strong> espacio para compartir</div>
+    </section>
+    <section class="included" id="incluye" aria-labelledby="included-title">
+      <div class="section-head"><div><div class="eyebrow">El festejo, resuelto</div><h2 id="included-title">¿Qué incluye?</h2></div><p class="section-note">Una propuesta para que el grupo disfrute la aventura y también tenga su momento para celebrar.</p></div>
+      <div class="included-grid">
+        <article class="include-item"><div class="include-icon" aria-hidden="true">↗</div><h3>Aventura en el parque</h3><p>Acceso a las atracciones incluidas en la propuesta de cumpleaños.</p></article>
+        <article class="include-item"><div class="include-icon" aria-hidden="true">⌂</div><h3>Un espacio para compartir</h3><p>Sector para comer y acompañantes, según disponibilidad.</p></article>
+        <article class="include-item"><div class="include-icon" aria-hidden="true">✦</div><h3>Detalles de celebración</h3><p>Guías, menú elegido y detalles especiales para quien cumple.</p></article>
+      </div>
+    </section>
+    <section class="extras" aria-label="Opcionales"><strong>Podés sumar opcionales</strong><div class="extra-pills"><span class="pill">Puesto de hidratación</span><span class="pill">Regalitos para invitados</span></div></section>
+    <section class="closing" id="consulta" aria-labelledby="closing-title">
+      <div><strong id="closing-title">¿Lo imaginamos juntos?</strong><p>Consultá por opciones y disponibilidad para tu festejo.</p></div>
+      <a class="button" href="#canal-pendiente" aria-label="Ver nota sobre el canal de consulta">Consultar por un cumpleaños</a>
+    </section>
+    <p class="note" id="canal-pendiente">Boceto conceptual. Textos e inclusiones sujetos a confirmación con Raki; definir el canal de consulta antes de publicar.</p>
+  </main>
+</body>
+</html>
