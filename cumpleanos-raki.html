@@ -29,6 +29,12 @@
     .nav-links { display: flex; font-size: 13px; font-weight: 650; gap: 24px; }
     .nav-links a { text-decoration: none; }
     .nav-links a[aria-current="page"] { color: var(--coral); }
+    .menu-toggle { align-items: center; background: var(--paper); border: 1px solid #c9d6c5; border-radius: 999px; color: var(--forest); cursor: pointer; display: none; font: inherit; font-size: 13px; font-weight: 750; gap: 9px; padding: 10px 14px; }
+    .menu-icon { display: grid; gap: 4px; width: 17px; }
+    .menu-icon span { background: currentColor; border-radius: 2px; height: 2px; transition: transform .18s ease, opacity .18s ease; width: 17px; }
+    .menu-toggle[aria-expanded="true"] .menu-icon span:first-child { transform: translateY(6px) rotate(45deg); }
+    .menu-toggle[aria-expanded="true"] .menu-icon span:nth-child(2) { opacity: 0; }
+    .menu-toggle[aria-expanded="true"] .menu-icon span:last-child { transform: translateY(-6px) rotate(-45deg); }
     .hero, .included, .closing { margin: auto; padding-left: var(--page-gutter); padding-right: var(--page-gutter); width: 100%; }
     .hero { align-items: center; display: grid; gap: clamp(38px, 5vw, 96px); grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); min-height: 610px; padding-bottom: 48px; padding-top: 18px; }
     .eyebrow { color: var(--forest); font-size: 11px; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; }
@@ -77,8 +83,12 @@
     :focus-visible { outline: 3px solid #bd4932; outline-offset: 3px; }
     @media (max-width: 700px) {
       .site-header { padding: 13px 18px; }
-      .nav-links { gap: 13px; }
-      .nav-links a:not([aria-current="page"]) { display: none; }
+      .nav { position: relative; }
+      .menu-toggle { display: inline-flex; }
+      .nav-links { background: var(--paper); border: 1px solid #e5e6d8; border-radius: 16px; box-shadow: 0 14px 34px #17352e1a; display: none; flex-direction: column; gap: 0; min-width: 190px; padding: 7px; position: absolute; right: 0; top: calc(100% + 10px); z-index: 10; }
+      .nav-links.is-open { display: flex; }
+      .nav-links a { border-radius: 10px; padding: 12px; }
+      .nav-links a:hover, .nav-links a:focus-visible { background: #edf1df; }
       .hero, .included, .closing { padding-left: 18px; padding-right: 18px; }
       .hero { gap: 20px; grid-template-columns: 1fr; padding-bottom: 24px; padding-top: 14px; }
       h1 { font-size: 46px; }
@@ -106,7 +116,7 @@
     }
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
-      .button { transition: none; }
+      .button, .menu-icon span { transition: none; }
     }
   </style>
 </head>
@@ -114,7 +124,10 @@
   <header class="site-header">
     <nav class="nav" aria-label="Navegación principal">
       <a class="brand" href="#inicio" aria-label="Raki Parque Aéreo, inicio"><span class="brand-mark">R</span> RAKI <small>PARQUE AÉREO</small></a>
-      <div class="nav-links"><a href="#cumple" aria-current="page">Cumpleaños</a><a href="#atracciones">Atracciones</a><a href="#empresas">Empresas</a><a href="#consulta">Contacto</a></div>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Abrir menú de navegación">
+        <span class="menu-icon" aria-hidden="true"><span></span><span></span><span></span></span><span>Menú</span>
+      </button>
+      <div class="nav-links" id="nav-links"><a href="#cumple" aria-current="page">Cumpleaños</a><a href="#atracciones">Atracciones</a><a href="#empresas">Empresas</a><a href="#consulta">Contacto</a></div>
     </nav>
   </header>
   <main id="inicio">
@@ -147,5 +160,28 @@
     </section>
     <p class="note" id="canal-pendiente">Boceto conceptual. Textos e inclusiones sujetos a confirmación con Raki; definir el canal de consulta antes de publicar.</p>
   </main>
+  <script>
+    const menuButton = document.querySelector('.menu-toggle');
+    const menuLinks = document.querySelector('.nav-links');
+
+    function setMenuOpen(isOpen) {
+      menuButton.setAttribute('aria-expanded', String(isOpen));
+      menuButton.setAttribute('aria-label', isOpen ? 'Cerrar menú de navegación' : 'Abrir menú de navegación');
+      menuLinks.classList.toggle('is-open', isOpen);
+    }
+
+    menuButton.addEventListener('click', () => {
+      setMenuOpen(menuButton.getAttribute('aria-expanded') !== 'true');
+    });
+    menuLinks.addEventListener('click', (event) => {
+      if (event.target.closest('a')) setMenuOpen(false);
+    });
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && menuButton.getAttribute('aria-expanded') === 'true') {
+        setMenuOpen(false);
+        menuButton.focus();
+      }
+    });
+  </script>
 </body>
 </html>
