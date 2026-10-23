@@ -23,9 +23,8 @@
     a { color: inherit; }
     .site-header { margin: 0 auto; padding: 16px var(--page-gutter); width: 100%; }
     .nav { align-items: center; display: flex; justify-content: space-between; }
-    .brand { align-items: center; display: flex; font-size: 17px; font-weight: 900; gap: 9px; letter-spacing: .04em; text-decoration: none; }
-    .brand-mark { align-items: center; background: var(--sun); border: 2px solid var(--coral); border-radius: 50%; display: inline-flex; height: 38px; justify-content: center; transform: rotate(-8deg); width: 38px; }
-    .brand small { font-size: 10px; font-weight: 500; letter-spacing: 0; }
+    .brand { align-items: center; display: flex; text-decoration: none; }
+    .brand-logo { display: block; height: 72px; object-fit: contain; width: 72px; }
     .nav-links { display: flex; font-size: 13px; font-weight: 650; gap: 24px; }
     .nav-links a { text-decoration: none; }
     .nav-links a[aria-current="page"] { color: var(--coral); }
@@ -45,19 +44,8 @@
     .button { background: var(--coral); border-radius: 999px; color: white; display: inline-block; font-size: 14px; font-weight: 750; padding: 14px 20px; text-decoration: none; transition: transform .18s ease, background .18s ease; }
     .button:hover { background: #d85f46; transform: translateY(-2px); }
     .text-link { color: var(--forest); font-size: 13px; font-weight: 750; text-decoration-color: var(--leaf); text-underline-offset: 4px; }
-    .hero-art { background: linear-gradient(180deg, #b9d8ce 0%, #dbe7bd 55%, #8baf70 100%); border-radius: 48% 48% 22px 22px; min-height: clamp(370px, 36vw, 560px); overflow: hidden; position: relative; }
-    .sun-disc { background: var(--sun); border-radius: 50%; height: 68px; position: absolute; right: 13%; top: 12%; width: 68px; }
-    .hill { background: #719d69; border-radius: 50% 50% 0 0; bottom: -45px; height: 170px; left: -10%; position: absolute; transform: rotate(-7deg); width: 125%; }
-    .hill.back { background: #8db678; bottom: 10px; height: 120px; left: 32%; opacity: .9; transform: rotate(9deg); }
-    .rope { border-top: 4px solid #f7f0d9; height: 88px; left: 7%; position: absolute; top: 38%; transform: rotate(-13deg); width: 96%; }
-    .rope::after { border-top: 3px solid #f7f0d9; content: ""; left: 8%; position: absolute; top: 25px; transform: rotate(18deg); width: 86%; }
-    .post { background: #b9553f; border-radius: 9px 9px 0 0; bottom: 48px; height: 150px; position: absolute; width: 14px; }
-    .post.one { left: 26%; transform: rotate(-8deg); }
-    .post.two { height: 190px; right: 24%; }
-    .platform { background: #d56e4d; bottom: 112px; height: 11px; left: 20%; position: absolute; transform: rotate(-8deg); width: 24%; }
-    .person { background: var(--sun); border: 4px solid #fff7dc; border-radius: 50%; height: 39px; left: 49%; position: absolute; top: 44%; width: 39px; }
-    .person::before { background: #214f42; border-radius: 10px; content: ""; height: 66px; left: 12px; position: absolute; top: 33px; transform: rotate(12deg); width: 10px; }
-    .person::after { background: #214f42; border-radius: 10px; content: ""; height: 44px; left: 1px; position: absolute; top: 43px; transform: rotate(-38deg); width: 7px; }
+    .hero-art { border-radius: 48% 48% 22px 22px; min-height: clamp(370px, 36vw, 560px); overflow: hidden; position: relative; }
+    .hero-photo { height: 100%; inset: 0; object-fit: cover; object-position: center 42%; position: absolute; width: 100%; }
     .art-label { background: var(--paper); border-radius: 12px; bottom: 16px; box-shadow: 0 8px 22px #17352e20; color: var(--ink); font-size: 12px; font-weight: 750; padding: 11px 14px; position: absolute; right: 14px; }
     .quick-facts { align-items: center; background: var(--forest); color: white; display: flex; flex-wrap: wrap; gap: 12px 30px; justify-content: center; padding: 17px 24px; }
     .fact { align-items: center; display: flex; font-size: 13px; gap: 8px; }
@@ -94,7 +82,7 @@
       h1 { font-size: 46px; }
       .lead { font-size: 15px; }
       .hero-art { border-radius: 44% 44% 16px 16px; min-height: 260px; }
-      .sun-disc { height: 50px; width: 50px; }
+      .brand-logo { height: 62px; width: 62px; }
       .quick-facts { gap: 10px 18px; justify-content: center; padding: 15px 18px; text-align: center; }
       .fact { font-size: 12px; }
       .included { padding-bottom: 32px; padding-top: 32px; }
@@ -123,7 +111,7 @@
 <body>
   <header class="site-header">
     <nav class="nav" aria-label="Navegación principal">
-      <a class="brand" href="#inicio" aria-label="Raki Parque Aéreo, inicio"><span class="brand-mark">R</span> RAKI <small>PARQUE AÉREO</small></a>
+      <a class="brand" href="#inicio" aria-label="Raki Parque Aéreo, inicio"><img class="brand-logo" src="assets/raki-logo-circulo.png" alt=""></a>
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Abrir menú de navegación">
         <span class="menu-icon" aria-hidden="true"><span></span><span></span><span></span></span><span>Menú</span>
       </button>
@@ -138,8 +126,9 @@
         <p class="lead">Un festejo al aire libre, con juegos en altura, momentos para compartir y toda la energía de Raki.</p>
         <div class="cta-row"><a class="button" href="#consulta">Consultar por un cumpleaños</a><a class="text-link" href="#incluye">Conocer qué incluye ↓</a></div>
       </div>
-      <div class="hero-art" role="img" aria-label="Ilustración conceptual de una persona en un circuito aéreo entre árboles">
-        <div class="sun-disc"></div><div class="rope"></div><div class="hill back"></div><div class="hill"></div><div class="post one"></div><div class="post two"></div><div class="platform"></div><div class="person"></div><div class="art-label">Aventura + festejo al aire libre</div>
+      <div class="hero-art">
+        <img class="hero-photo" src="assets/raki-cumpleanos.jpg" alt="Dos chicos disfrutan un circuito aéreo entre los árboles, con arnés y casco.">
+        <div class="art-label">Aventura + festejo al aire libre</div>
       </div>
     </section>
     <section class="quick-facts" aria-label="Resumen de la propuesta">
@@ -185,3 +174,4 @@
   </script>
 </body>
 </html>
+
